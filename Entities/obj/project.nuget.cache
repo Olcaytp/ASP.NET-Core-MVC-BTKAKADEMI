@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4AAQ8xdVgQk0ky7zKNd3iONbhG68zZaqvAgoTlbbDM0b29eW4uO0WBwnaLLwCfReettEQ2x7v5Xu8dmV1G0UnA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Olcay\\Desktop\\mvc\\Store\\Entities\\Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Olcay\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.20\\microsoft.windowsdesktop.app.ref.6.0.20.nupkg.sha512",
+    "C:\\Users\\Olcay\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.20\\microsoft.netcore.app.ref.6.0.20.nupkg.sha512",
+    "C:\\Users\\Olcay\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.20\\microsoft.aspnetcore.app.ref.6.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}
