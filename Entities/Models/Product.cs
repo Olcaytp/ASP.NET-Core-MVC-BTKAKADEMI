@@ -8,7 +8,7 @@ public class Product
     [Required(ErrorMessage = "Product name is required")]
     public string? ProductName { get; set; } = String.Empty;
 
-    [Required(ErrorMessage = "Priice is required")]
+    [Required(ErrorMessage = "Price is required")]
     public decimal Price { get; set; }
 
 }

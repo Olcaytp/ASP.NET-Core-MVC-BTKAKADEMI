@@ -52,6 +52,7 @@ namespace StoreApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("ProductId");

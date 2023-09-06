@@ -1,4 +1,5 @@
 using Entities.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Repositories.Contracts;
 using Services.Contracts;
 
@@ -32,6 +33,14 @@ namespace Services
             if (product is null)
                 throw new Exception("Product not found");
             return product;
+        }
+
+        public void UpdateOneProduct(Product product)
+        {
+            var entity = _manager.Product.GetOneProduct(product.ProductId, true);
+            entity.ProductName = product.ProductName;
+            entity.Price = product.Price;
+            _manager.Save();
         }
     }
 }
