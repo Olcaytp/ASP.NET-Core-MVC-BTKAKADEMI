@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using System.Reflection;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repositories;
@@ -13,21 +14,12 @@ public class RepositoryContext : DbContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
-            modelBuilder.Entity<Product>()
-            .HasData(
-                new Product { ProductId = 1, ProductName = "Computer", Price = 1800},
-                new Product { ProductId = 2, ProductName = "Mouse", Price = 250},
-                new Product { ProductId = 3, ProductName = "Keyboard", Price = 700},
-                new Product { ProductId = 4, ProductName = "Monitor", Price = 1500},
-                new Product { ProductId = 5, ProductName = "Headphones", Price = 1000}
-            );
 
-            modelBuilder.Entity<Category>()
-            .HasData(
-                new Category(){CategoryId=1, CategoryName = "Book"},
-                new Category(){CategoryId=2, CategoryName = "Electronic"}
-            );
+            //to use the configuration classes
+            // modelBuilder.ApplyConfiguration(new ProductConfig());
+            // modelBuilder.ApplyConfiguration(new CategoryConfig());
+
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
     }
