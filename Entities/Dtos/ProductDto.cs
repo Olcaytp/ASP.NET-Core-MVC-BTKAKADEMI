@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models;
-public class ProductDto
+public record ProductDto
 {
     public int ProductId { get; init; }
 
