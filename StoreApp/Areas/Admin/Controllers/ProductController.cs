@@ -28,6 +28,28 @@ namespace StoreApp.Areas.Admin.Controllers
             ViewBag.Categories = GetCategoriesSelectList();
             return View();
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion productDto, IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                //file operations
+                string path = Path.Combine(Directory.GetCurrentDirectory(), 
+                "wwwroot", "img", file.FileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                productDto.ImageUrl = String.Concat("/img/", file.FileName);
+                _manager.ProductService.CreateProduct(productDto);
+                return RedirectToAction("Index");
+            }
+            return View(productDto);
+        }
 
         private SelectList GetCategoriesSelectList()
         {
@@ -36,17 +58,6 @@ namespace StoreApp.Areas.Admin.Controllers
             "CategoryName", "1");
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm] ProductDtoForInsertion productDto)
-        {
-            if (ModelState.IsValid)
-            {
-                _manager.ProductService.CreateProduct(productDto);
-                return RedirectToAction("Index");
-            }
-            return View(productDto);
-        }
 
         public IActionResult Update([FromRoute(Name = "id")] int id)
 		{
@@ -57,11 +68,22 @@ namespace StoreApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update([FromForm] ProductDtoForUpdate product)
+        public async Task<IActionResult> Update([FromForm] ProductDtoForUpdate productDto, IFormFile file)
         {
 			if(ModelState.IsValid)
 			{
-				_manager.ProductService.UpdateOneProduct(product);
+                //file operations
+                string path = Path.Combine(Directory.GetCurrentDirectory(), 
+                "wwwroot", "img", file.FileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                productDto.ImageUrl = String.Concat("/img/", file.FileName);
+                
+				_manager.ProductService.UpdateOneProduct(productDto);
             	return RedirectToAction("Index");
 			}
 			return View();

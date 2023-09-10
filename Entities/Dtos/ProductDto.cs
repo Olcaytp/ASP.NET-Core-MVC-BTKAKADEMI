@@ -10,6 +10,8 @@ public record ProductDto
 
     [Required(ErrorMessage = "Price is required")]
     public decimal Price { get; init; }
+    public String? Summary { get; init; } = String.Empty;
+    public String? ImageUrl { get; set; } = String.Empty;
 
     public int? CategoryId { get; init; } 
 
