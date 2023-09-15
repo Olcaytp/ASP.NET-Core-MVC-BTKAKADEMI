@@ -15,6 +15,10 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
     b => b.MigrationsAssembly("StoreApp")
     ));
 
+    //provides cache memory and session management
+    builder.Services.AddDistributedMemoryCache();
+    builder.Services.AddSession();
+
 //IoC için interface ve concrete tanımlamaları yapılmalı.
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -31,6 +35,8 @@ builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession(); //session middleware, to use session
+
 app.UseHttpsRedirection();
 app.UseRouting();
 
