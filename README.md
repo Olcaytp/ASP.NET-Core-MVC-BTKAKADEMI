@@ -13,6 +13,13 @@ In this project, you will find different sections that correspond to the various
 - **Overview:** Provides a general overview of ASP.NET Core MVC's fundamental concepts.
 - **Previewing Projects:** Discusses the project structure and previews.
 
+## ScreenShots
+![2](https://github.com/Olcaytp/ASP.NET-Core-MVC-BTKAKADEMI/blob/main/StoreApp/wwwroot/img/readme.1.jpg)
+*******************************************************************************************************************
+![3](https://github.com/Olcaytp/ASP.NET-Core-MVC-BTKAKADEMI/blob/main/StoreApp/wwwroot/img/readme.2.jpg)
+*******************************************************************************************************************
+![1](https://github.com/Olcaytp/ASP.NET-Core-MVC-BTKAKADEMI/blob/main/StoreApp/wwwroot/img/readme.3.jpg)
+
 ### Fundamentals
 
 - **HTTP Protocol:** Explains the basic principles of the HTTP protocol.
