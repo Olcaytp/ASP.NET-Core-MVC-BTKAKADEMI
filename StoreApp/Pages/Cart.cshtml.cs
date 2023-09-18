@@ -44,7 +44,9 @@ namespace StoreApp.Pages
                 //sessionCart calistigi icin buna da gerek yok artik
                 // HttpContext.Session.SetJson("Cart",Cart);
             }
-            return Page(); // returnUrl
+            // return Page(); // returnUrl
+            // post islemi yapildiginda sayfayi returnUrl ile iliskili olan sayfaya yonlendirir.
+            return RedirectToPage(new { returnUrl = returnUrl });
         }
 
         public IActionResult OnPostRemove(int id, string returnUrl)
