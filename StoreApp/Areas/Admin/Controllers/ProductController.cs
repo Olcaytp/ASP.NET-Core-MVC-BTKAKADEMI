@@ -48,7 +48,7 @@ namespace StoreApp.Areas.Admin.Controllers
                 _manager.ProductService.CreateProduct(productDto);
                 return RedirectToAction("Index");
             }
-            return View(productDto);
+            return View();
         }
 
         private SelectList GetCategoriesSelectList()
